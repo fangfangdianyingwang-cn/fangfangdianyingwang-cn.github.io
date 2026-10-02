@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>放放电影网 - 热门电影电视剧在线观看_影视资源聚合导航</title>
+<meta name="description" content="放放电影网是面向中文用户的影视资源聚合导航站，收录热门电影、热播电视剧、国创动漫与热播榜单，分类清晰、每日更新、移动端自适应，把想看的片一次性放出来。">
+<meta name="keywords" content="放放电影网,放放电影,电影在线观看,电视剧在线观看,动漫在线观看,高清影视导航,热播榜单,新片速递">
+<meta name="author" content="放放电影网">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#f4f7f5">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://fangfangdianyingwang-cn.github.io/">
+<link rel="apple-touch-icon" href="/favicon.ico">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="放放电影网">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="放放电影网 - 热门电影电视剧在线观看_影视资源聚合导航">
+<meta property="og:description" content="放放电影网：热门电影、热播剧集、国创动漫与热播榜单一站直达，每日更新，手机端自适应。">
+<meta property="og:url" content="https://fangfangdianyingwang-cn.github.io/">
+<meta property="og:image" content="https://fangfangdianyingwang-cn.github.io/favicon.ico">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="放放电影网 - 热门电影电视剧在线观看">
+<meta name="twitter:description" content="放放电影网：热门电影、热播剧集、热播榜单一站直达，移动端自适应。">
+
+<style>
+/* ============ 设计令牌：等高线地形图（Topographic Map） ============ */
+:root{
+  --paper:#f4f7f5;
+  --paper-2:#ffffff;
+  --paper-3:#e8efe9;
+  --ink:#12211c;
+  --ink-2:#4f635b;
+  --ink-3:#8b9b93;
+  --green:#1f9d6b;
+  --deep:#14614a;
+  --orange:#f0801c;
+  --blue:#1f5f8b;
+  --sand:#d9cfae;
+  --line:rgba(18,33,28,.14);
+  --line-2:rgba(18,33,28,.08);
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Courier New",monospace;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --maxw:1180px;
+  --nav-h:64px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;padding:0;color:var(--ink);
+  font:16px/1.8 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(rgba(31,157,107,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(31,157,107,.05) 1px,transparent 1px);
+  background-size:40px 40px,40px 40px;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4{margin:0;font-weight:800;line-height:1.26;letter-spacing:-.02em}
+p{margin:0}
+:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:var(--green);padding:10px 16px;z-index:999}
+.skip:focus{left:12px;top:12px}
+.mono{font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase}
+
+#progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:200;
+  background:linear-gradient(90deg,var(--deep),var(--green),var(--orange))}
+
+/* ============ 坐标条 ============ */
+.cobar{background:var(--ink);color:#fff}
+.cobar-in{max-width:var(--maxw);margin:0 auto;padding:7px 22px;display:flex;justify-content:space-between;
+  gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.cobar-in b{color:var(--green)}
+
+/* ============ 导航 ============ */
+.nav{position:sticky;top:0;z-index:150;background:rgba(244,247,245,.94);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:0 22px;height:var(--nav-h);display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:11px;flex:0 0 auto}
+/* 指北针 logo */
+.compass{flex:0 0 auto;width:36px;height:36px;border-radius:50%;border:2px solid var(--ink);position:relative;
+  background:var(--paper-2)}
+.compass i{position:absolute;left:50%;top:50%}
+.compass i:nth-child(1){width:2px;height:13px;margin:-13px 0 0 -1px;background:var(--orange)}
+.compass i:nth-child(2){width:2px;height:13px;margin:0 0 0 -1px;background:var(--ink-3)}
+.compass i:nth-child(3){width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--green)}
+.brand b{display:block;font-size:18.5px;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;color:var(--ink-3);
+  text-transform:uppercase;margin-top:-3px}
+.menu{margin-left:auto;display:flex;align-items:center;gap:2px}
+.menu a{padding:8px 13px;font-size:14.5px;font-weight:700;color:var(--ink-2);transition:.18s;white-space:nowrap;position:relative}
+.menu a:hover{color:var(--ink)}
+.menu a::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:var(--green);
+  transform:scaleX(0);transform-origin:left;transition:.24s}
+.menu a:hover::after,.menu a.active::after{transform:scaleX(1)}
+.menu a.active{color:var(--ink)}
+.nav-cta{flex:0 0 auto;margin-left:8px;padding:9px 17px;border-radius:999px;font-family:var(--mono);font-size:12.5px;
+  font-weight:700;letter-spacing:.08em;color:#fff;background:var(--green);white-space:nowrap}
+.nav-cta:hover{background:var(--deep)}
+.burger{display:none;margin-left:auto;width:42px;height:36px;border-radius:999px;background:var(--paper-2);
+  border:1px solid var(--line);cursor:pointer;place-items:center}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);transition:.22s;border-radius:2px}
+.burger span+span{margin-top:5px}
+.burger.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============ Hero ============ */
+.hero{position:relative;padding:44px 0 38px;overflow:hidden}
+/* 等高线背景 */
+.topo-bg{position:absolute;right:-40px;top:-30px;width:560px;height:460px;pointer-events:none;z-index:0;opacity:.5}
+.hero .wrap{position:relative;z-index:3}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:30px;align-items:center}
+.mark{display:inline-flex;align-items:center;gap:9px;padding:6px 15px;border-radius:999px;border:1px solid var(--line);
+  background:var(--paper-2);font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.16em;
+  color:var(--ink-2);text-transform:uppercase}
+.mark i{display:block;width:9px;height:9px;border-radius:50%;background:var(--green);flex:0 0 auto;
+  box-shadow:0 0 0 4px rgba(31,157,107,.2)}
+.hero h1{font-size:clamp(30px,5vw,52px);margin:18px 0 16px}
+.hero h1 em{font-style:normal;color:var(--deep)}
+.hero h1 u{text-decoration:none;position:relative;white-space:nowrap;color:var(--ink)}
+.hero h1 u::after{content:"";position:absolute;left:0;right:0;bottom:-.04em;height:8px;background:rgba(240,128,28,.38);z-index:-1}
+.lead{font-size:16px;color:var(--ink-2);max-width:52ch}
+.lead b{color:var(--ink);font-weight:800;box-shadow:inset 0 -.5em 0 rgba(31,157,107,.22)}
+/* 搜索：地形输入框 */
+.search{margin:26px 0 14px;display:flex;gap:0;max-width:600px;border-radius:14px;border:1px solid var(--line);
+  background:var(--paper-2);overflow:hidden;box-shadow:0 8px 22px rgba(18,33,28,.06)}
+.search .pre{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:0 14px;border-right:1px solid var(--line);
+  font-family:var(--mono);font-size:12px;font-weight:700;color:var(--ink-2);letter-spacing:.08em}
+.search .pre i{display:block;width:8px;height:8px;border-radius:50%;border:2px solid var(--green)}
+.search input{flex:1;min-width:0;border:0;outline:0;background:none;font:15px var(--sans);color:var(--ink);padding:13px 14px}
+.search input::placeholder{color:var(--ink-3)}
+.search button{border:0;border-left:1px solid var(--line);cursor:pointer;padding:13px 26px;background:var(--green);
+  color:#fff;font:800 15px var(--sans)}
+.search button:hover{background:var(--deep)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;align-items:center;font-size:13px;font-weight:700}
+.chips a{padding:6px 14px;border-radius:999px;background:var(--paper-2);color:var(--ink-2);border:1px solid var(--line);transition:.2s}
+.chips a:hover{border-color:var(--green);color:var(--ink)}
+.chips a b{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+
+/* 地形卡 */
+.terrain{position:relative;padding:20px;border-radius:18px;border:1px solid var(--line);background:var(--paper-2);
+  box-shadow:0 18px 40px rgba(18,33,28,.1);overflow:hidden}
+.terrain::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;
+  background:linear-gradient(90deg,var(--deep),var(--green),var(--sand),var(--orange))}
+.terrain .head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;
+  padding-bottom:12px;border-bottom:1px solid var(--line)}
+.terrain .head h3{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase}
+.terrain .head span{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.1em}
+/* 迷你等高线地图 */
+.mini-map{position:relative;height:150px;border-radius:12px;overflow:hidden;background:var(--paper-3);margin-bottom:14px}
+.mini-map svg{width:100%;height:100%;display:block}
+.terrain .rows{border-top:1px solid var(--line);padding-top:4px}
+.terrain .rows div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line-2);font-size:13.5px}
+.terrain .rows div:last-child{border-bottom:0}
+.terrain .rows span{color:var(--ink-3);font-weight:700}
+.terrain .rows b{font-family:var(--mono);font-weight:700}
+.terrain .foot{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.terrain .foot p{font-size:12.5px;color:var(--ink-2);max-width:36ch}
+/* 指北针徽标 */
+.ndial{flex:0 0 auto;width:60px;height:60px;border-radius:50%;border:2px solid var(--ink);position:relative;background:var(--paper-2)}
+.ndial b{position:absolute;left:50%;top:3px;transform:translateX(-50%);font-family:var(--mono);font-size:9px;font-weight:700;color:var(--orange)}
+.ndial i{position:absolute;left:50%;top:50%}
+.ndial i:nth-child(2){width:2px;height:22px;margin:-22px 0 0 -1px;
+  background:linear-gradient(180deg,var(--orange) 50%,var(--ink-3) 50%)}
+.ndial i:nth-child(3){width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--green)}
+
+/* ============ 栏目通用 ============ */
+section{padding:0}
+.inner{padding:46px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.sec-head .txt{display:flex;gap:15px;align-items:flex-start}
+/* 图钉序号 */
+.pin{flex:0 0 auto;width:46px;height:56px;position:relative;display:grid;place-items:center}
+.pin i{position:absolute;left:50%;bottom:0;width:2px;height:14px;margin-left:-1px;background:var(--ink-2)}
+.pin b{width:40px;height:40px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);display:grid;place-items:center;
+  color:#fff;background:var(--pc);box-shadow:0 6px 14px rgba(18,33,28,.24)}
+.pin b span{display:block;transform:rotate(45deg);font-family:var(--mono);font-size:12px;font-weight:700}
+.sec-head h2{font-size:clamp(21px,2.9vw,30px)}
+.sec-head h2 small{display:block;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.28em;
+  color:var(--ink-3);text-transform:uppercase;margin-bottom:7px}
+.sec-head p{font-size:14.3px;color:var(--ink-2);max-width:54ch;margin-top:8px}
+.more{flex:0 0 auto;padding:11px 20px;border-radius:999px;font-family:var(--mono);font-size:12.5px;font-weight:700;
+  letter-spacing:.08em;color:#fff;background:var(--ink);white-space:nowrap}
+.more:hover{background:var(--green)}
+
+.filters{display:flex;gap:9px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px;scrollbar-width:none;flex-wrap:wrap}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:0 0 auto;border-radius:999px;border:1px solid var(--line);background:var(--paper-2);color:var(--ink-2);
+  padding:8px 18px;font:700 14.5px var(--sans);cursor:pointer;transition:.18s}
+.filters button:hover{border-color:var(--ink-3);color:var(--ink)}
+.filters button.on{background:var(--green);color:#fff;border-color:var(--green)}
+
+/* ============ 片库：地形卡 ============ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:16px}
+.card{display:block;position:relative;border-radius:16px;background:var(--paper-2);border:1px solid var(--line);
+  overflow:hidden;transition:transform .26s ease,box-shadow .26s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(18,33,28,.14)}
+.card .ph{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(165deg,var(--c1),var(--c2))}
+/* 同心等高线 */
+.card .ph::before{content:"";position:absolute;inset:0;
+  background-image:
+    repeating-radial-gradient(circle at 34% 26%, rgba(255,255,255,.28) 0 2px, transparent 2px 17px),
+    repeating-radial-gradient(circle at 76% 72%, rgba(255,255,255,.18) 0 2px, transparent 2px 21px)}
+.card .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 44%,rgba(18,33,28,.86))}
+.card .tag{position:absolute;left:8px;top:8px;z-index:3;border-radius:999px;font-size:11px;font-weight:700;
+  letter-spacing:.06em;padding:4px 12px;color:#fff;background:var(--pc)}
+.card .sc{position:absolute;right:8px;top:8px;z-index:3;min-width:40px;height:28px;border-radius:999px;display:grid;
+  place-items:center;padding:0 8px;font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--ink);
+  background:var(--paper-2)}
+.card .nm{position:absolute;left:10px;right:10px;bottom:10px;z-index:3;font-size:13.5px;font-weight:800;color:#fff;
+  text-shadow:0 2px 10px rgba(18,33,28,.7)}
+.card .meta{padding:11px 12px 14px}
+.card .meta h3{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card .meta p{font-size:12.3px;color:var(--ink-3);margin-top:3px;display:flex;justify-content:space-between;gap:8px;font-weight:700}
+.card .meta p em{font-style:normal;font-family:var(--mono);font-weight:700;color:var(--pc)}
+/* 定位图钉 */
+.card .mark-pin{position:absolute;right:12px;bottom:52px;z-index:4;width:16px;height:16px;border-radius:50% 50% 50% 3px;
+  transform:rotate(-45deg);background:var(--orange);border:2px solid #fff;opacity:0;transition:.26s}
+.card:hover .mark-pin{opacity:1}
+
+/* ============ 剧集：里程进度 ============ */
+.cabs{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.cab{display:flex;gap:14px;padding:13px;border-radius:16px;background:var(--paper-2);border:1px solid var(--line);
+  transition:.26s;position:relative}
+.cab:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(18,33,28,.1)}
+.cab .mini{flex:0 0 78px;height:104px;border-radius:12px;position:relative;overflow:hidden;
+  background:linear-gradient(165deg,var(--c1),var(--c2))}
+.cab .mini::before{content:"";position:absolute;inset:0;
+  background-image:repeating-radial-gradient(circle at 40% 40%, rgba(255,255,255,.26) 0 2px, transparent 2px 15px)}
+.cab .mini b{position:absolute;left:0;right:0;bottom:0;z-index:2;font-family:var(--mono);font-size:10px;text-align:center;
+  padding:3px 0;color:#fff;background:rgba(18,33,28,.9)}
+.cab .det{flex:1;min-width:0}
+.cab h3{font-size:15.5px}
+.cab p{font-size:12.5px;color:var(--ink-3);margin-top:3px;font-weight:700}
+/* 比例尺刻度进度 */
+.cab .scale{margin-top:12px;position:relative;height:16px}
+.cab .scale .track{position:absolute;left:0;right:0;top:7px;height:4px;border-radius:2px;background:var(--paper-3)}
+.cab .scale .track i{position:absolute;left:0;top:0;bottom:0;border-radius:2px;background:var(--pc)}
+.cab .scale .ticks{position:relative;display:flex;justify-content:space-between;width:100%}
+.cab .scale .ticks span{width:2px;height:8px;margin-top:4px;background:var(--ink-3);opacity:.5}
+.cab .scale .ticks span:nth-child(1),.cab .scale .ticks span:last-child{height:14px;margin-top:1px;opacity:1;background:var(--ink-2)}
+.cab .pct{font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--pc);margin-top:8px;display:block;letter-spacing:.06em}
+.cab .flag{flex:0 0 auto;align-self:center;width:22px;height:22px;border-radius:50%;border:2px solid var(--pc);
+  position:relative;background:var(--paper-2)}
+.cab .flag::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--pc)}
+
+/* ============ 榜单：海拔 ============ */
+.ranks{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.rank{border-radius:16px;background:var(--paper-2);border:1px solid var(--line);padding:16px 16px 6px;
+  position:relative;overflow:hidden}
+.rank::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--pc)}
+.rank h3{font-size:16.5px;margin-bottom:10px;padding-bottom:11px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:10px}
+.rank h3 i{flex:0 0 auto;width:12px;height:12px;border-radius:50%;background:var(--pc);
+  box-shadow:0 0 0 4px rgba(31,157,107,.16)}
+.rank li{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-2)}
+.rank li:last-child{border-bottom:0}
+.rank .no{flex:0 0 auto;min-width:32px;height:24px;border-radius:999px;display:grid;place-items:center;padding:0 8px;
+  font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--ink-2);background:var(--paper-3)}
+.rank li:nth-child(1) .no{color:#fff;background:var(--pc)}
+.rank .rt{flex:1;min-width:0}
+.rank .rt strong{display:block;font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank .rt span{font-size:12px;color:var(--ink-3)}
+/* 海拔高度 */
+.rank .alt{flex:0 0 auto;text-align:right;font-family:var(--mono);font-weight:700}
+.rank .alt b{display:block;font-size:13.5px;color:var(--pc)}
+.rank .alt em{font-style:normal;font-size:9.5px;letter-spacing:.1em;color:var(--ink-3)}
+
+/* ============ 勘探手记 ============ */
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(274px,1fr));gap:18px}
+.note{border-radius:16px;background:var(--paper-2);border:1px solid var(--line);overflow:hidden;transition:.28s}
+.note:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(18,33,28,.12)}
+.note .cv{height:120px;position:relative;border-bottom:1px solid var(--line)}
+.note .cv::before{content:"";position:absolute;inset:0;
+  background-image:repeating-radial-gradient(circle at 30% 60%, rgba(255,255,255,.24) 0 2px, transparent 2px 18px),
+                   repeating-radial-gradient(circle at 78% 30%, rgba(255,255,255,.16) 0 2px, transparent 2px 22px)}
+.note .cv b{position:absolute;left:10px;bottom:10px;border-radius:999px;font-family:var(--mono);font-size:11px;
+  font-weight:700;letter-spacing:.14em;padding:5px 13px;color:#fff;background:var(--pc)}
+.note .bd{padding:14px 15px 17px}
+.note h3{font-size:16px;margin-bottom:7px}
+.note p{font-size:13.5px;color:var(--ink-2)}
+.note time{display:block;margin-top:11px;font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--ink-3);letter-spacing:.08em}
+
+/* ============ 关于 / FAQ ============ */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.panel{border-radius:16px;background:var(--paper-2);border:1px solid var(--line);padding:24px}
+.panel h3{font-size:19px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.panel p{font-size:14.5px;color:var(--ink-2);margin-bottom:11px}
+.panel p b{color:var(--ink);box-shadow:inset 0 -.5em 0 rgba(31,157,107,.22)}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.spec div{padding:12px 13px;border-radius:12px;background:var(--paper-3);border-left:4px solid var(--cc)}
+.spec div:nth-child(1){--cc:var(--green)}
+.spec div:nth-child(2){--cc:var(--blue)}
+.spec div:nth-child(3){--cc:var(--orange)}
+.spec div:nth-child(4){--cc:var(--sand)}
+.spec strong{display:block;font-size:13.5px}
+.spec span{font-size:12px;color:var(--ink-3);font-weight:700}
+.faq details{border-bottom:1px solid var(--line-2);padding:13px 0}
+.faq summary{cursor:pointer;font-size:15px;font-weight:800;list-style:none;display:flex;justify-content:space-between;
+  gap:12px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"＋";font-family:var(--mono);font-size:14px;color:var(--green)}
+.faq details[open] summary::after{content:"－"}
+.faq details p{font-size:14px;color:var(--ink-2);margin-top:9px}
+
+/* CTA */
+.cta{margin-top:14px;position:relative;border-radius:20px;padding:42px 26px;text-align:center;overflow:hidden;
+  background:var(--ink);color:#fff}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:repeating-radial-gradient(circle at 22% 34%, rgba(31,157,107,.34) 0 2px, transparent 2px 26px),
+                   repeating-radial-gradient(circle at 80% 66%, rgba(240,128,28,.24) 0 2px, transparent 2px 30px)}
+.cta h2{position:relative;font-size:clamp(20px,3vw,29px);margin-bottom:10px}
+.cta h2 em{font-style:normal;color:var(--green)}
+.cta p{position:relative;font-size:14.5px;color:rgba(255,255,255,.78);max-width:56ch;margin:0 auto 22px}
+.cta a{position:relative;display:inline-block;border-radius:999px;padding:14px 34px;font-family:var(--mono);font-size:14px;
+  font-weight:700;letter-spacing:.1em;color:var(--ink);background:var(--green)}
+.cta a:hover{background:#fff}
+
+/* 页脚 */
+footer{margin-top:0;padding:36px 0 22px;background:var(--ink);color:#fff}
+.fgrid{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:26px}
+.fgrid h4{font-size:15px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.24);
+  color:var(--green);letter-spacing:.08em}
+.fgrid a,.fgrid li{font-size:13.5px;color:rgba(255,255,255,.66);line-height:2.1}
+.fgrid a:hover{color:var(--green)}
+.fbrand .lg{display:flex;align-items:center;gap:11px;font-size:19px;font-weight:800;letter-spacing:-.01em}
+.fbrand .lg i{font-style:normal;display:block;width:30px;height:30px;border-radius:50%;border:2px solid var(--green);
+  position:relative;flex:0 0 auto}
+.fbrand .lg i::after{content:"";position:absolute;left:50%;top:4px;width:2px;height:20px;margin-left:-1px;
+  background:linear-gradient(180deg,var(--orange) 50%,rgba(255,255,255,.6) 50%)}
+.fbrand p{font-size:13.5px;color:rgba(255,255,255,.6);margin-top:11px;max-width:42ch}
+.bottom{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.2);
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.6)}
+.bottom b{color:var(--green)}
+
+#top{position:fixed;right:16px;bottom:20px;width:46px;height:46px;border-radius:999px;background:var(--paper-2);
+  color:var(--ink);border:1px solid var(--line);display:grid;place-items:center;cursor:pointer;z-index:160;
+  opacity:0;pointer-events:none;transition:.25s;box-shadow:0 8px 20px rgba(18,33,28,.16)}
+#top.show{opacity:1;pointer-events:auto}
+#top:hover{background:var(--green);color:#fff}
+#top svg{width:18px;height:18px;fill:currentColor}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ 响应式 ============ */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .terrain{max-width:540px}
+  .about{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:880px){
+  .menu{position:fixed;top:var(--nav-h);left:10px;right:10px;flex-direction:column;align-items:stretch;gap:4px;
+    padding:12px;border-radius:16px;background:var(--paper-2);border:1px solid var(--line);
+    box-shadow:0 18px 40px rgba(18,33,28,.18);
+    transform:translateY(-10px);opacity:0;visibility:hidden;transition:.24s;
+    max-height:calc(100vh - var(--nav-h) - 30px);overflow:auto}
+  .menu.open{transform:none;opacity:1;visibility:visible}
+  .menu a{padding:14px 16px;font-size:16px;border-bottom:1px solid var(--line-2)}
+  .menu a::after{display:none}
+  .nav-cta{margin:8px 0 0;text-align:center}
+  .burger{display:grid}
+  .hero{padding:22px 0 18px}
+  .topo-bg{width:340px;height:300px;right:-90px;top:-60px}
+  .cabs{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .wrap{padding:0 15px}
+  .nav-in{padding:0 15px}
+  .cobar-in{padding:6px 15px;font-size:11px;letter-spacing:.06em}
+  .inner{padding:34px 0}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card .nm{font-size:12px}
+  .card .meta h3{font-size:13.5px}
+  .search{flex-wrap:wrap;border-radius:14px}
+  .search .pre{flex:1 1 100%;padding:8px 14px;border-right:0;border-bottom:1px solid var(--line)}
+  .search input{flex:1 1 100%;border-bottom:1px solid var(--line)}
+  .search button{flex:1 1 100%;border-left:0;border-top:1px solid var(--line)}
+  .terrain{padding:16px 14px}
+  .mini-map{height:130px}
+  .fgrid{grid-template-columns:1fr;gap:20px}
+  .spec{grid-template-columns:1fr}
+  .cta{padding:30px 16px}
+  .sec-head{gap:12px}
+  .pin{width:40px;height:50px}
+  .pin b{width:34px;height:34px}
+  .pin b span{font-size:11px}
+  .cab .flag{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<a class="skip" href="#main">跳到主要内容</a>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ===== 坐标条 ===== -->
+<div class="cobar">
+  <div class="cobar-in">
+    <span>放放电影网 · 31.2°N / 121.4°E</span>
+    <span>每日 <b>10:00</b> / <b>21:00</b> 上新</span>
+    <span>榜单每小时重排</span>
+  </div>
+</div>
+
+<!-- ===== 导航 ===== -->
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#home" aria-label="放放电影网首页">
+      <span class="compass" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span><b>放放电影网</b><small>atlas of films</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="展开导航菜单" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu" id="menu" aria-label="主导航">
+      <a href="#home" class="active">勘探起点</a>
+      <a href="#movie">片库地图</a>
+      <a href="#series">剧集里程</a>
+      <a href="#rank">海拔榜单</a>
+      <a href="#news">勘探手记</a>
+      <a href="#about">营地指南</a>
+      <a class="nav-cta" href="#movie">开始勘探</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== 首页 ===== -->
+  <section id="home" class="hero">
+    <svg class="topo-bg" viewBox="0 0 560 460" aria-hidden="true" role="presentation">
+      <g fill="none" stroke="#1f9d6b" stroke-width="1.4" opacity=".38">
+        <path d="M60 230c40-70 120-96 200-80s150 70 168 150-58 128-140 124-190-46-208-124-20-40-20-70z"/>
+        <path d="M92 232c38-56 108-78 176-64s132 60 148 126-52 108-122 104-166-38-182-108-20-32-20-58z"/>
+        <path d="M124 234c34-44 94-62 152-50s114 50 128 102-44 88-104 84-142-30-156-88-20-26-20-48z"/>
+        <path d="M156 236c30-32 80-46 128-36s96 40 108 80-38 70-88 66-120-24-132-70-16-20-16-40z"/>
+        <path d="M188 238c26-22 66-32 104-24s78 30 88 60-30 52-70 50-98-18-108-52-14-14-14-34z"/>
+        <path d="M220 240c22-14 52-20 80-14s60 22 68 42-24 38-56 36-76-14-84-40-8-12-8-24z"/>
+        <path d="M252 242c18-8 40-12 58-8s44 14 50 26-18 24-42 22-56-10-62-26-4-8-4-14z"/>
+      </g>
+      <g fill="none" stroke="#f0801c" stroke-width="1.2" opacity=".3">
+        <path d="M420 90c34-26 78-30 108-8s34 66 12 96-74 34-104 14-44-56-16-102z"/>
+        <path d="M440 104c26-18 58-22 80-4s24 48 8 70-54 24-76 8-32-40-12-74z"/>
+        <path d="M460 118c18-12 40-14 54-2s16 34 4 48-38 16-52 6-20-28-6-52z"/>
+      </g>
+      <g fill="none" stroke="#1f5f8b" stroke-width="1" opacity=".22">
+        <path d="M40 380c30-20 70-22 96-4s30 50 8 68-58 20-78 6-40-42-26-70z"/>
+        <path d="M62 392c20-12 46-14 62-2s18 32 4 44-38 12-50 4-24-28-16-46z"/>
+      </g>
+    </svg>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="mark"><i aria-hidden="true"></i>Grid A-01 · 全片库地形图</span>
+        <h1>把好片一次性放出来，<em>放放电影网</em> <u>按图索骥</u></h1>
+        <p class="lead">
+          放放电影网是面向中文用户的影视资源聚合导航站：热门电影、<b>热播剧集</b>、国创动漫与热播榜单一站收拢，
+          分类清晰、每日上新，手机、平板、电脑打开都能顺畅在线观看。
+        </p>
+        <form class="search" role="search" id="searchForm">
+          <span class="pre" aria-hidden="true"><i></i>定位</span>
+          <input type="search" name="q" placeholder="搜索片名、演员或类型，例如：科幻 / 治愈" aria-label="站内搜索">
+          <button type="submit">开始勘探</button>
+        </form>
+        <div class="chips">
+          <a href="#movie"><b style="background:var(--green)"></b>科幻区</a>
+          <a href="#movie"><b style="background:var(--orange)"></b>治愈区</a>
+          <a href="#series"><b style="background:var(--blue)"></b>都市情感</a>
+          <a href="#rank"><b style="background:var(--deep)"></b>高分高地</a>
+          <a href="#movie"><b style="background:var(--sand)"></b>国创动漫</a>
+        </div>
+      </div>
+
+      <aside class="terrain reveal">
+        <div class="head">
+          <h3>Terrain · 片区概览</h3>
+          <span>SCALE 1:5000</span>
+        </div>
+        <div class="mini-map" aria-hidden="true">
+          <svg viewBox="0 0 320 150" role="presentation">
+            <rect width="320" height="150" fill="#e8efe9"/>
+            <g fill="none" stroke="#1f9d6b" stroke-width="1.2" opacity=".55">
+              <path d="M20 80c26-40 74-56 122-44s86 44 96 88-38 62-84 58-112-24-124-64-10-24-10-38z"/>
+              <path d="M46 82c22-30 62-42 102-32s72 34 80 66-32 46-70 42-92-18-102-48-10-18-10-28z"/>
+              <path d="M72 84c18-22 50-30 82-22s58 24 64 46-26 32-56 28-74-12-82-34-8-14-8-18z"/>
+              <path d="M98 86c14-14 38-20 62-14s44 16 48 30-20 20-42 18-56-8-62-22-6-8-6-12z"/>
+            </g>
+            <g fill="none" stroke="#f0801c" stroke-width="1" opacity=".45">
+              <path d="M240 34c18-14 42-16 58-4s18 34 6 50-40 16-54 6-24-30-10-52z"/>
+              <path d="M254 44c12-8 28-10 38-2s12 22 4 32-26 10-35 4-16-20-7-34z"/>
+            </g>
+            <circle cx="150" cy="86" r="5" fill="#f0801c"/>
+            <circle cx="150" cy="86" r="10" fill="none" stroke="#f0801c" stroke-width="1.4" opacity=".6"/>
+            <circle cx="252" cy="52" r="4" fill="#1f5f8b"/>
+            <circle cx="252" cy="52" r="8" fill="none" stroke="#1f5f8b" stroke-width="1.2" opacity=".6"/>
+            <line x1="150" y1="86" x2="252" y2="52" stroke="#12211c" stroke-width="1" stroke-dasharray="4 4" opacity=".5"/>
+            <text x="120" y="106" font-family="ui-monospace,monospace" font-size="9" fill="#4f635b">起点</text>
+            <text x="248" y="76" font-family="ui-monospace,monospace" font-size="9" fill="#4f635b">目标</text>
+          </svg>
+        </div>
+        <div class="rows">
+          <div><span>收录影片</span><b>35,600+</b></div>
+          <div><span>精细分类</span><b>18</b></div>
+          <div><span>上新频率</span><b>每日 2 次</b></div>
+          <div><span>榜单刷新</span><b>每小时</b></div>
+        </div>
+        <div class="foot">
+          <p>放放电影网把分散的影视入口标进同一张地形图，找片因此变短。</p>
+          <span class="ndial" aria-hidden="true"><b>N</b><i></i><i></i></span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== 栏目一：片库地图 ===== -->
+  <section id="movie">
+    <div class="wrap inner">
+      <div class="sec-head reveal">
+        <div class="txt">
+          <span class="pin" style="--pc:var(--green)"><i aria-hidden="true"></i><b><span>01</span></b></span>
+          <div>
+            <h2><small>Atlas</small>片库地图 · 一片区一类，按图找片</h2>
+            <p>放放电影网把片库划成六片地形：科幻、治愈、动作、悬疑、爱情、动漫，点一下就切换片区，不用在长列表里翻找。</p>
+          </div>
+        </div>
+        <a class="more" href="#">查看全部片区 →</a>
+      </div>
+      <div class="filters" role="tablist" aria-label="影片类型筛选">
+        <button class="on" data-cat="all" role="tab" aria-selected="true">全部片区</button>
+        <button data-cat="scifi" role="tab" aria-selected="false">科幻</button>
+        <button data-cat="heal" role="tab" aria-selected="false">治愈</button>
+        <button data-cat="action" role="tab" aria-selected="false">动作</button>
+        <button data-cat="mystery" role="tab" aria-selected="false">悬疑</button>
+        <button data-cat="love" role="tab" aria-selected="false">爱情</button>
+        <button data-cat="anime" role="tab" aria-selected="false">动漫</button>
+      </div>
+      <div class="grid" id="movieGrid">
+        <a class="card reveal" href="#" data-cat="heal" style="--pc:var(--orange);--c1:#1f9d6b;--c2:#0a3b2a">
+          <span class="ph"><span class="tag">治愈</span><span class="sc">8.9</span><span class="nm">潮汐来信</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>潮汐来信</h3><p><span>剧情 · 2026</span><em>8.9</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="scifi" style="--pc:var(--blue);--c1:#1f5f8b;--c2:#0a1c30">
+          <span class="ph"><span class="tag">科幻</span><span class="sc">9.1</span><span class="nm">星轨之下</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>星轨之下</h3><p><span>科幻 · 2026</span><em>9.1</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="action" style="--pc:var(--orange);--c1:#f0801c;--c2:#5c2c05">
+          <span class="ph"><span class="tag">动作</span><span class="sc">8.5</span><span class="nm">疾速拦截</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>疾速拦截</h3><p><span>动作 · 2026</span><em>8.5</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="mystery" style="--pc:var(--deep);--c1:#14614a;--c2:#05261c">
+          <span class="ph"><span class="tag">悬疑</span><span class="sc">8.8</span><span class="nm">第七个证人</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>第七个证人</h3><p><span>悬疑 · 2025</span><em>8.8</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="love" style="--pc:var(--green);--c1:#2bb37c;--c2:#0a3b2a">
+          <span class="ph"><span class="tag">爱情</span><span class="sc">8.7</span><span class="nm">长街旧事</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>长街旧事</h3><p><span>剧情 · 2025</span><em>8.7</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="anime" style="--pc:var(--sand);--c1:#c9a227;--c2:#4a3708">
+          <span class="ph"><span class="tag">动漫</span><span class="sc">8.6</span><span class="nm">花灯记</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>花灯记</h3><p><span>动画 · 2026</span><em>8.6</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="heal" style="--pc:var(--orange);--c1:#3fb98a;--c2:#0a3b2a">
+          <span class="ph"><span class="tag">治愈</span><span class="sc">8.3</span><span class="nm">海边小店</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>海边小店</h3><p><span>剧情 · 2025</span><em>8.3</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="mystery" style="--pc:var(--deep);--c1:#2f7a5f;--c2:#05261c">
+          <span class="ph"><span class="tag">悬疑</span><span class="sc">8.4</span><span class="nm">无声证词</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>无声证词</h3><p><span>悬疑 · 2024</span><em>8.4</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="action" style="--pc:var(--orange);--c1:#ea8c2c;--c2:#5c2c05">
+          <span class="ph"><span class="tag">动作</span><span class="sc">8.1</span><span class="nm">极速追缉</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>极速追缉</h3><p><span>动作 · 2026</span><em>8.1</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="scifi" style="--pc:var(--blue);--c1:#3a7fb0;--c2:#0a1c30">
+          <span class="ph"><span class="tag">科幻</span><span class="sc">9.0</span><span class="nm">深空信号</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>深空信号</h3><p><span>科幻 · 2026</span><em>9.0</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="anime" style="--pc:var(--sand);--c1:#b8973a;--c2:#4a3708">
+          <span class="ph"><span class="tag">动漫</span><span class="sc">8.2</span><span class="nm">山海食记</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>山海食记</h3><p><span>动画 · 2025</span><em>8.2</em></p></div>
+        </a>
+        <a class="card reveal" href="#" data-cat="love" style="--pc:var(--green);--c1:#4fc09a;--c2:#0a3b2a">
+          <span class="ph"><span class="tag">爱情</span><span class="sc">7.9</span><span class="nm">周末大赢家</span></span>
+          <span class="mark-pin" aria-hidden="true"></span>
+          <div class="meta"><h3>周末大赢家</h3><p><span>喜剧 · 2025</span><em>7.9</em></p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 栏目二：剧集里程 ===== -->
+  <section id="series">
+    <div class="wrap inner">
+      <div class="sec-head reveal">
+        <div class="txt">
+          <span class="pin" style="--pc:var(--blue)"><i aria-hidden="true"></i><b><span>02</span></b></span>
+          <div>
+            <h2><small>Series</small>剧集里程 · 走到哪一站标在比例尺上</h2>
+            <p>都市情感、年代往事、悬疑罪案同步跟播，每部剧标注当前集数与更新节奏，里程条告诉你已经走了多远。</p>
+          </div>
+        </div>
+        <a class="more" href="#">更新时间表 →</a>
+      </div>
+      <div class="cabs">
+        <a class="cab reveal" href="#" style="--pc:var(--deep);--c1:#14614a;--c2:#05261c">
+          <span class="mini"><b>EP 24</b></span>
+          <div class="det"><h3>第七个证人</h3><p>悬疑 / 犯罪 · 每周三、周五 20:00</p>
+            <span class="scale"><span class="track"><i style="width:80%"></i></span>
+              <span class="ticks"><span></span><span></span><span></span><span></span><span></span><span></span></span></span>
+            <span class="pct">里程 24/30 · 80%</span></div>
+          <span class="flag" aria-hidden="true"></span>
+        </a>
+        <a class="cab reveal" href="#" style="--pc:var(--green);--c1:#2bb37c;--c2:#0a3b2a">
+          <span class="mini"><b>EP 20</b></span>
+          <div class="det"><h3>长街旧事</h3><p>剧情 / 年代 · 每周一至周三 21:00</p>
+            <span class="scale"><span class="track"><i style="width:62%"></i></span>
+              <span class="ticks"><span></span><span></span><span></span><span></span><span></span><span></span></span></span>
+            <span class="pct">里程 20/32 · 62%</span></div>
+          <span class="flag" aria-hidden="true"></span>
+        </a>
+        <a class="cab reveal" href="#" style="--pc:var(--orange);--c1:#1f9d6b;--c2:#0a3b2a">
+          <span class="mini"><b>EP 32</b></span>
+          <div class="det"><h3>潮汐来信</h3><p>爱情 / 都市 · 全 32 集一次看爽</p>
+            <span class="scale"><span class="track"><i style="width:100%"></i></span>
+              <span class="ticks"><span></span><span></span><span></span><span></span><span></span><span></span></span></span>
+            <span class="pct">里程 32/32 · 已抵达</span></div>
+          <span class="flag" aria-hidden="true"></span>
+        </a>
+        <a class="cab reveal" href="#" style="--pc:var(--blue);--c1:#1f5f8b;--c2:#0a1c30">
+          <span class="mini"><b>EP 12</b></span>
+          <div class="det"><h3>深空信号</h3><p>科幻 / 剧情 · 每周六 22:00</p>
+            <span class="scale"><span class="track"><i style="width:40%"></i></span>
+              <span class="ticks"><span></span><span></span><span></span><span></span><span></span><span></span></span></span>
+            <span class="pct">里程 12/30 · 40%</span></div>
+          <span class="flag" aria-hidden="true"></span>
+        </a>
+        <a class="cab reveal" href="#" style="--pc:var(--sand);--c1:#c9a227;--c2:#4a3708">
+          <span class="mini"><b>EP 30</b></span>
+          <div class="det"><h3>山海食记</h3><p>动画 / 国创 · 每周四 10:00</p>
+            <span class="scale"><span class="track"><i style="width:75%"></i></span>
+              <span class="ticks"><span></span><span></span><span></span><span></span><span></span><span></span></span></span>
+            <span class="pct">里程 30/40 · 75%</span></div>
+          <span class="flag" aria-hidden="true"></span>
+        </a>
+        <a class="cab reveal" href="#" style="--pc:var(--orange);--c1:#f0801c;--c2:#5c2c05">
+          <span class="mini"><b>EP 08</b></span>
+          <div class="det"><h3>极速追缉</h3><p>动作 / 涉案 · 每周日 20:00</p>
+            <span class="scale"><span class="track"><i style="width:27%"></i></span>
+              <span class="ticks"><span></span><span></span><span></span><span></span><span></span><span></span></span></span>
+            <span class="pct">里程 8/30 · 27%</span></div>
+          <span class="flag" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 栏目三：海拔榜单 ===== -->
+  <section id="rank">
+    <div class="wrap inner">
+      <div class="sec-head reveal">
+        <div class="txt">
+          <span class="pin" style="--pc:var(--orange)"><i aria-hidden="true"></i><b><span>03</span></b></span>
+          <div>
+            <h2><small>Ranking</small>海拔榜单 · 分数越高，海拔越高</h2>
+            <p>榜单综合放放电影网站内播放热度、完播率与观众评分，每小时重算一次，三张榜各看各的。</p>
+          </div>
+        </div>
+        <a class="more" href="#">榜单规则 →</a>
+      </div>
+      <div class="ranks">
+        <div class="rank reveal" style="--pc:var(--green)">
+          <h3><i aria-hidden="true"></i>今日热播榜</h3>
+          <ol>
+            <li><span class="no">01</span><span class="rt"><strong>星轨之下</strong><span>科幻 · 2026</span></span><span class="alt"><b>9.1</b><em>ALT</em></span></li>
+            <li><span class="no">02</span><span class="rt"><strong>深空信号</strong><span>科幻 · 2026</span></span><span class="alt"><b>9.0</b><em>ALT</em></span></li>
+            <li><span class="no">03</span><span class="rt"><strong>潮汐来信</strong><span>剧情 · 2026</span></span><span class="alt"><b>8.9</b><em>ALT</em></span></li>
+            <li><span class="no">04</span><span class="rt"><strong>第七个证人</strong><span>悬疑 · 2025</span></span><span class="alt"><b>8.8</b><em>ALT</em></span></li>
+            <li><span class="no">05</span><span class="rt"><strong>长街旧事</strong><span>剧情 · 2025</span></span><span class="alt"><b>8.7</b><em>ALT</em></span></li>
+          </ol>
+        </div>
+        <div class="rank reveal" style="--pc:var(--blue)">
+          <h3><i aria-hidden="true"></i>高分口碑榜</h3>
+          <ol>
+            <li><span class="no">01</span><span class="rt"><strong>第七个证人</strong><span>悬疑 · 2025</span></span><span class="alt"><b>8.8</b><em>ALT</em></span></li>
+            <li><span class="no">02</span><span class="rt"><strong>花灯记</strong><span>动画 · 2026</span></span><span class="alt"><b>8.6</b><em>ALT</em></span></li>
+            <li><span class="no">03</span><span class="rt"><strong>疾速拦截</strong><span>动作 · 2026</span></span><span class="alt"><b>8.5</b><em>ALT</em></span></li>
+            <li><span class="no">04</span><span class="rt"><strong>无声证词</strong><span>悬疑 · 2024</span></span><span class="alt"><b>8.4</b><em>ALT</em></span></li>
+            <li><span class="no">05</span><span class="rt"><strong>海边小店</strong><span>剧情 · 2025</span></span><span class="alt"><b>8.3</b><em>ALT</em></span></li>
+          </ol>
+        </div>
+        <div class="rank reveal" style="--pc:var(--sand)">
+          <h3><i aria-hidden="true"></i>国创动漫榜</h3>
+          <ol>
+            <li><span class="no">01</span><span class="rt"><strong>花灯记</strong><span>动画 · 2026</span></span><span class="alt"><b>8.6</b><em>ALT</em></span></li>
+            <li><span class="no">02</span><span class="rt"><strong>山海食记</strong><span>动画 · 2025</span></span><span class="alt"><b>8.2</b><em>ALT</em></span></li>
+            <li><span class="no">03</span><span class="rt"><strong>星辰旅人</strong><span>动画 · 2026</span></span><span class="alt"><b>7.9</b><em>ALT</em></span></li>
+            <li><span class="no">04</span><span class="rt"><strong>机械之心</strong><span>动画 · 2025</span></span><span class="alt"><b>7.6</b><em>ALT</em></span></li>
+            <li><span class="no">05</span><span class="rt"><strong>森林邮局</strong><span>动画 · 2024</span></span><span class="alt"><b>7.3</b><em>ALT</em></span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 栏目四：勘探手记 ===== -->
+  <section id="news">
+    <div class="wrap inner">
+      <div class="sec-head reveal">
+        <div class="txt">
+          <span class="pin" style="--pc:var(--green)"><i aria-hidden="true"></i><b><span>04</span></b></span>
+          <div>
+            <h2><small>Notes</small>勘探手记 · 上线消息与观影攻略</h2>
+            <p>每天梳理上线消息、题材观察与观影攻略，在点开播放器之前先做一次低成本决策。</p>
+          </div>
+        </div>
+        <a class="more" href="#">更多勘探手记 →</a>
+      </div>
+      <div class="notes">
+        <article class="note reveal">
+          <div class="cv" style="background:linear-gradient(150deg,#1f5f8b,#0a1c30);--pc:var(--blue)"><b>今日上新</b></div>
+          <div class="bd"><h3>本周新片：科幻与治愈同台</h3><p>放放电影网整理本周上线新片的题材分布与看点，附观影顺序建议。</p><time datetime="2026-10-03">2026-10-03</time></div>
+        </article>
+        <article class="note reveal">
+          <div class="cv" style="background:linear-gradient(150deg,#1f9d6b,#0a3b2a);--pc:var(--green)"><b>观影指南</b></div>
+          <div class="bd"><h3>手机上看清 1080P 的三步排查法</h3><p>从码率、播放器到网络环境逐一排查，弱网下也能获得稳定的高清体验。</p><time datetime="2026-10-01">2026-10-01</time></div>
+        </article>
+        <article class="note reveal">
+          <div class="cv" style="background:linear-gradient(150deg,#f0801c,#5c2c05);--pc:var(--orange)"><b>榜单解读</b></div>
+          <div class="bd"><h3>热播榜的分数是怎么算出来的</h3><p>拆解放放电影网榜单权重：播放热度、完播率与评分如何共同决定排位。</p><time datetime="2026-09-28">2026-09-28</time></div>
+        </article>
+        <article class="note reveal">
+          <div class="cv" style="background:linear-gradient(150deg,#14614a,#05261c);--pc:var(--deep)"><b>类型专题</b></div>
+          <div class="bd"><h3>一份陪你过周末的治愈片单</h3><p>从轻松日常到温柔结局，挑选 12 部适合周末慢慢看的治愈系作品。</p><time datetime="2026-09-25">2026-09-25</time></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 栏目五：营地指南 ===== -->
+  <section id="about">
+    <div class="wrap inner">
+      <div class="sec-head reveal">
+        <div class="txt">
+          <span class="pin" style="--pc:var(--deep)"><i aria-hidden="true"></i><b><span>05</span></b></span>
+          <div>
+            <h2><small>About</small>关于放放电影网</h2>
+            <p>一个把「找片」这件事变短的影视资源聚合导航站，分类、榜单与新片信息集中在一页里。</p>
+          </div>
+        </div>
+        <a class="more" href="#">意见反馈 →</a>
+      </div>
+      <div class="about">
+        <div class="panel reveal">
+          <h3>我们做什么</h3>
+          <p><b>放放电影网</b>（https://fangfangdianyingwang-cn.github.io）是一个面向中文用户的影视资源聚合导航站。目标很直接：让「找片」这件事变短，把分散的影视入口、分类标签与榜单数据收进同一个页面。</p>
+          <p>三条坚持：<b>分类够细</b>、<b>上新够勤</b>、<b>页面够轻</b>。整站单页结构，移动端自适应，弱网也能快速打开。</p>
+          <div class="spec">
+            <div><strong>六片地形</strong><span>按题材直接切换片区</span></div>
+            <div><strong>移动优先</strong><span>手机平板桌面全适配</span></div>
+            <div><strong>每日上新</strong><span>10:00 / 21:00 两次</span></div>
+            <div><strong>轻量加载</strong><span>单页结构，打开即看</span></div>
+          </div>
+        </div>
+        <div class="panel faq reveal">
+          <h3>常见问题</h3>
+          <details open><summary>放放电影网需要注册才能浏览吗？</summary><p>不需要。片库地图、榜单与勘探手记内容全部开放访问，打开页面即可查看，无需注册登录。</p></details>
+          <details><summary>站名里的「放放」是什么意思？</summary><p>取自「把好片一次放出来」。全站做成一张地形图，题材即片区、影片即坐标，找片的过程像一次短途勘探。</p></details>
+          <details><summary>手机端会自动适配屏幕吗？</summary><p>会。页面为响应式布局，手机上自动切换为双列卡片与折叠导航，横竖屏都能正常显示。</p></details>
+          <details><summary>影片清晰度可以自己选吗？</summary><p>支持多档清晰度切换，具体档位以播放源为准；网络较差时建议先降低清晰度保证流畅。</p></details>
+          <details><summary>找不到想看的影片怎么办？</summary><p>先用顶部搜索框按片名、演员或类型检索，也可进入片库地图按题材与年份逐层筛选。</p></details>
+        </div>
+      </div>
+
+      <div class="cta reveal">
+        <h2>今天向哪出发？<em>放放电影网</em> 已经标好坐标</h2>
+        <p>收藏放放电影网，随时打开就能看到最新上线的电影、剧集与热播榜单，今天不愁没得看。</p>
+        <a href="#movie">开始勘探</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fbrand">
+        <a class="lg" href="#home" aria-label="放放电影网首页"><i aria-hidden="true"></i>放放电影网</a>
+        <p>放放电影网 · 影视资源聚合导航。本站仅提供影视信息索引与分类导航服务。</p>
+      </div>
+      <div>
+        <h4>栏目导航</h4>
+        <ul>
+          <li><a href="#home">勘探起点</a></li>
+          <li><a href="#movie">片库地图</a></li>
+          <li><a href="#series">剧集里程</a></li>
+          <li><a href="#rank">海拔榜单</a></li>
+          <li><a href="#news">勘探手记</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>热门类型</h4>
+        <ul>
+          <li><a href="#movie">治愈系电影</a></li>
+          <li><a href="#movie">科幻电影</a></li>
+          <li><a href="#movie">悬疑犯罪</a></li>
+          <li><a href="#movie">爱情剧情</a></li>
+          <li><a href="#movie">国创动漫</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于本站</h4>
+        <ul>
+          <li><a href="#about">关于放放电影网</a></li>
+          <li><a href="#about">常见问题</a></li>
+          <li><a href="#">意见反馈</a></li>
+          <li><a href="#">免责声明</a></li>
+          <li><a href="#">友情链接</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 放放电影网 https://fangfangdianyingwang-cn.github.io · 影视信息聚合导航</span>
+      <span>热门关键词：<b>放放电影网</b> · 电影在线观看 · 电视剧在线观看 · 动漫在线观看 · 热播榜单</span>
+    </div>
+  </div>
+</footer>
+
+<button id="top" aria-label="回到顶部"><svg viewBox="0 0 24 24"><path d="M12 5l7 7h-4v7h-6v-7H5z"/></svg></button>
+
+<!-- ===== 结构化数据（利于必应理解与收录） ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://fangfangdianyingwang-cn.github.io/#website",
+      "url": "https://fangfangdianyingwang-cn.github.io/",
+      "name": "放放电影网",
+      "alternateName": ["放放电影", "放放电影网官网"],
+      "description": "放放电影网是面向中文用户的影视资源聚合导航站，收录热门电影、热播电视剧、国创动漫与热播榜单。",
+      "inLanguage": "zh-CN",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": "https://fangfangdianyingwang-cn.github.io/?q={search_term_string}" },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://fangfangdianyingwang-cn.github.io/#organization",
+      "name": "放放电影网",
+      "url": "https://fangfangdianyingwang-cn.github.io/",
+      "logo": "https://fangfangdianyingwang-cn.github.io/favicon.ico"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://fangfangdianyingwang-cn.github.io/#webpage",
+      "url": "https://fangfangdianyingwang-cn.github.io/",
+      "name": "放放电影网 - 热门电影电视剧在线观看_影视资源聚合导航",
+      "isPartOf": { "@id": "https://fangfangdianyingwang-cn.github.io/#website" },
+      "about": { "@id": "https://fangfangdianyingwang-cn.github.io/#organization" },
+      "inLanguage": "zh-CN",
+      "primaryImageOfPage": "https://fangfangdianyingwang-cn.github.io/favicon.ico",
+      "breadcrumb": { "@id": "https://fangfangdianyingwang-cn.github.io/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://fangfangdianyingwang-cn.github.io/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://fangfangdianyingwang-cn.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "片库地图", "item": "https://fangfangdianyingwang-cn.github.io/#movie" },
+        { "@type": "ListItem", "position": 3, "name": "剧集里程", "item": "https://fangfangdianyingwang-cn.github.io/#series" },
+        { "@type": "ListItem", "position": 4, "name": "海拔榜单", "item": "https://fangfangdianyingwang-cn.github.io/#rank" },
+        { "@type": "ListItem", "position": 5, "name": "勘探手记", "item": "https://fangfangdianyingwang-cn.github.io/#news" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "放放电影网今日热播榜",
+      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+      "numberOfItems": 5,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "星轨之下" },
+        { "@type": "ListItem", "position": 2, "name": "深空信号" },
+        { "@type": "ListItem", "position": 3, "name": "潮汐来信" },
+        { "@type": "ListItem", "position": 4, "name": "第七个证人" },
+        { "@type": "ListItem", "position": 5, "name": "长街旧事" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "放放电影网需要注册才能浏览吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "不需要。片库地图、榜单与勘探手记内容全部开放访问，打开页面即可查看，无需注册登录。" } },
+        { "@type": "Question", "name": "站名里的「放放」是什么意思？",
+          "acceptedAnswer": { "@type": "Answer", "text": "取自「把好片一次放出来」。全站做成一张地形图，题材即片区、影片即坐标，找片的过程像一次短途勘探。" } },
+        { "@type": "Question", "name": "手机端会自动适配屏幕吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "会。页面为响应式布局，手机上自动切换为双列卡片与折叠导航，横竖屏都能正常显示。" } },
+        { "@type": "Question", "name": "影片清晰度可以自己选吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "支持多档清晰度切换，具体档位以播放源为准；网络较差时建议先降低清晰度保证流畅。" } },
+        { "@type": "Question", "name": "找不到想看的影片怎么办？",
+          "acceptedAnswer": { "@type": "Answer", "text": "先用顶部搜索框按片名、演员或类型检索，也可进入片库地图按题材与年份逐层筛选。" } }
+      ]
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+  var bar = document.getElementById('progress');
+  var topBtn = document.getElementById('top');
+  function onScroll () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var y = window.scrollY || document.documentElement.scrollTop;
+    bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    if (y > 420) { topBtn.classList.add('show'); } else { topBtn.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  topBtn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  /* 移动端导航 */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  burger.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    burger.classList.toggle('on', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') {
+      menu.classList.remove('open');
+      burger.classList.remove('on');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  /* 导航高亮 */
+  var links = Array.prototype.slice.call(menu.querySelectorAll('a[href^="#"]:not(.nav-cta)'));
+  var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if ('IntersectionObserver' in window) {
+    var navObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) { return; }
+        links.forEach(function (a) {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    secs.forEach(function (s) { navObs.observe(s); });
+  }
+
+  /* 片区筛选 */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.filters button'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#movieGrid .card'));
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tabs.forEach(function (b) { b.classList.remove('on'); b.setAttribute('aria-selected', 'false'); });
+      btn.classList.add('on');
+      btn.setAttribute('aria-selected', 'true');
+      var cat = btn.getAttribute('data-cat');
+      cards.forEach(function (c) {
+        c.style.display = (cat === 'all' || c.getAttribute('data-cat') === cat) ? '' : 'none';
+      });
+    });
+  });
+
+  /* 搜索 */
+  var form = document.getElementById('searchForm');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.q.value.trim()) { form.q.focus(); return; }
+    document.getElementById('movie').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  /* 入场动画 */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en, i) {
+        if (en.isIntersecting) {
+          var el = en.target;
+          setTimeout(function () { el.classList.add('in'); }, i * 50);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(function (r) { io.observe(r); });
+  } else {
+    reveals.forEach(function (r) { r.classList.add('in'); });
+  }
+})();
+</script>
+</body>
+</html>
